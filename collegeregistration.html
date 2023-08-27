@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background-image: url(./images/frds.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #name {
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+  }
+
+  #phn {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  #email {
+    margin-top: 10px;
+    margin-left: 25px;
+  }
+
+  #pwd {
+    margin-top: 10px;
+  }
+
+  #click {
+    margin-top: 10px;
+  }
+</style>
+</style>
+<script>
+  alpha = /^[A-Za-z]+$/;
+  const number = /^([0-9]{5,})+$/;
+  const email = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+  // const pass = /^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{7,15}$/;
+  function myfun() {
+    const name = document.getElementById("name").value;
+    const contact = document.getElementById("phn").value;
+    const mail = document.getElementById("mail").value;
+    const pwd = document.getElementById("pwd").value;
+    if (alpha.test(name) && email.test(mail) && number.test(contact)) {
+      alert("done")
+      const myobj = { user: name, number: contact, email: mail, pass: pwd }
+      const json = JSON.stringify(myobj)
+      //document.write(json)
+      localStorage.setItem("JSON", json)
+      window.location.assign(" card.html")
+    }
+    else {
+      alert("not done")
+    }
+  }
+</script>
+
+<body>
+  <center>
+    <label>name</label>
+    <input type="test" id="name" /><br>
+    <label>contact</label>
+    <input tpye="number" id="phn" /><br>
+    <label>email</label>
+    <input type="email" id="mail" /><br>
+    <label>password</label>
+    <input type="password" id="pwd" /><br>
+    <input type="submit" value="click" onclick="myfun()" /><br>
+  </center>
+
+
+
+
+</body>
+
+</html>
